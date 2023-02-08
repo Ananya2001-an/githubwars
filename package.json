@@ -1,7 +1,7 @@
 {
   "name": "githubwars",
   "version": "0.1.0",
-  "homepage": "https://Ananya2001-an.github.io/githubwars",
+  "homepage": "http://Ananya2001-an.github.io/githubwars",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
