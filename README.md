@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+[![Open in GitPod](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Ananya2001-an/githubwars)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+![GitHub repo size](https://img.shields.io/github/repo-size/Ananya2001-an/githubwars)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 👋 Welcome to GitHubWars 🎮
+GitHubWars is a fun project started by @Ananya2001-an to cultivate a community full of people who wish to learn coding the fun way. You can compare your GitHub stats with other fellow GitHub users and see how much you have grown on this platform. I wish to take this project to the next level where we can have more fun challenges, rounds, rewards and lots of learning!    
 
-## Available Scripts
+![chrome-capture-2023-1-8 (1)](https://user-images.githubusercontent.com/55504616/217591161-9418cbb0-67a2-490d-815c-9a5e8c71ad61.gif)
 
-In the project directory, you can run:
+## Inspiration 💭
+I wanted to make something with which I could learn new skills along the way. I thought that this could be a great way to make people realize how well they are using GitHub. If they are not then they should because there are many developers around the world who use GitHub like there's no tomorrow😂. It's a fact by the way. 
 
-### `npm start`
+## Vision 🎯
+In the future I wish to add much more challenges and fun themes to this game which are still under progress. I wish to use the GitHub api properly for getting accurate results as much as possible and maybe create possibility of generating random GitHub users with whom you can compete, share your wins on social media, and more. But I need help your help to achieve the same. ;)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# How to contribute? 👩‍💻
+1. GitPod
+2. Local development
 
+> First of all, you need to fork the repository so that you can make changes in your own copy and not directly to the upstream repository. Later you can raise a pull request to merge your changes to the main branch of upstream repo. 
+
+## GitPod
+In the cloud-free development environment which will have all the dependencies you need. You can use Gitpod in the cloud. [![Open in GitPod](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Ananya2001-an/githubwars)
+
+## Local development
+This environment is fully on computer and requires each dependency (for example NodeJS) to be installed and set up, but gives you the most flexibility for customisation.
+
+### Prequisites
+- Nodejs
+- Git
+
+### Commands
+1. Clone your forked repo on your local machine using command `git clone https://github.com/{username}/githubwars.git`
+2. Run `npm install` in terminal to install all dependencies mentioned in package.json file.
+3. Finally run `npm run start` script to start the app in dev mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## License 🛡
+LinkFree is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contributing 🛠
 
-### `npm run build`
+- Contributions make the open source community an amazing place to learn, inspire, and create.
+- Any contributions you make are **truly appreciated**.
+- Let's continue contributing to keep the community active and growing.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Support 🙏 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Don't forget to leave a star ⭐️
