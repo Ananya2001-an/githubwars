@@ -35,7 +35,7 @@ export default function Game() {
   return (
     <>
     <div className="bg">
-      <img className="animated-icon" src="../images/octocat.svg" />
+      <img className="animated-icon" src="https://user-images.githubusercontent.com/55504616/217468363-e2c929f6-424c-4186-95fe-ab37f07c4d56.svg" />
       <div className="arena">
         <div className="user1">
           {
@@ -62,7 +62,7 @@ export default function Game() {
         <Button className="btn" disabled={!hideInput1 || !hideInput2} onClick={()=>battle()}>Battle</Button>
         <div className="user2">
           {
-            hideInput1 === false && <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}><img src="../../public/mona.gif" width="100px" height="100px" />
+            hideInput1 === false && <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}><img src="https://user-images.githubusercontent.com/55504616/217468609-0d6531b4-9251-47c2-919a-7d5f79b9df8a.gif" width="100px" height="100px" />
               <p align="center" style={{ color: "var(--theme)", fontSize: "15px" }}>Waiting for first player . . .</p></div>
           }
           {
@@ -88,7 +88,8 @@ export default function Game() {
         </div>
       </div>
     </div>
-      <footer style={{marginTop:"-10vh", textAlign:"center"}}>Contribute <a href="" style={{color:"black", fontSize:"20px", cursor:"pointer"}}><FaGithub /></a></footer>
-    </>
+    <footer style={{textAlign:"center"}}>
+  <a href="https://github.com/Ananya2001-an/githubwars" target="_blank" 
+  style={{color:"black", fontSize:"20px", cursor:"pointer"}}><FaGithub /></a></footer>    </>
     )
 }
