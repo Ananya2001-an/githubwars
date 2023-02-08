@@ -3,7 +3,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/Ananya2001-an/githubwars)
 
 # 👋 Welcome to GitHubWars 🎮
-GitHubWars is a fun project started by @Ananya2001-an to cultivate a community full of people who wish to learn coding the fun way. You can compare your GitHub stats with other fellow GitHub users and see how much you have grown on this platform. I wish to take this project to the next level where we can have more fun challenges, rounds, rewards and lots of learning!    
+GitHubWars is a fun project started by **@Ananya2001-an** to cultivate a community full of people who wish to learn coding the fun way. You can compare your GitHub stats with other fellow GitHub users and see how much you have grown on this platform. I wish to take this project to the next level where we can have more fun challenges, rounds, rewards and lots of learning!    
 
 ![chrome-capture-2023-1-8 (1)](https://user-images.githubusercontent.com/55504616/217591161-9418cbb0-67a2-490d-815c-9a5e8c71ad61.gif)
 
