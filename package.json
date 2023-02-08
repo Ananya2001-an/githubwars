@@ -21,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js",
+    "lint-fix":"eslint src/**/*.js --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +46,8 @@
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.7",
+    "eslint": "^8.33.0",
+    "eslint-plugin-react": "^7.32.2",
     "semantic-release": "^20.1.0"
   }
 }
