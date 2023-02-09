@@ -50,11 +50,11 @@ body{
 }
 
 /* Using !important to override default behavior from the _buttons.scss*/
-.btn:hover, .btn:disabled, .btn:active {
-    background-color: white !important;
-    color: var(--theme) !important;
-    border-color: white !important;
-}
+    .btn:hover, .btn:disabled, .btn:active {
+        background-color: white !important;
+        color: var(--theme) !important;
+        border-color: var(--theme) !important;
+    }
 
 .arena{
   width:100%;
