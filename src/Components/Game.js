@@ -37,11 +37,9 @@ export default function Game() {
                     user_no === '1' ? setHideInput2(false) : setHideInput2(true);
                 } else {
                     fetchRandomUser(user_no);
-
                 }
             });
     }
-
 
     const fetchUser = (user_no) => {
         fetch(`https://api.github.com/users/${user_no === '1' ? username1Ref.current.value : username2Ref.current.value}`)
@@ -52,9 +50,6 @@ export default function Game() {
                     user_no === '1' ? setUser1(data) : setUser2(data);
                     user_no === '1' ? setHideInput1(true) : setHideInput2(true);
                     user_no === '1' ? setHideInput2(false) : setHideInput2(true);
-                } else {
-                    fetchRandomUser(user_no);
-                    
                 }
             });
     };
@@ -89,6 +84,9 @@ export default function Game() {
                             <Button className="btn" onClick={() => fetchUser('1')}>
               Get
                             </Button>
+                            <Button className="btn" onClick={() => fetchRandomUser('1')}>
+                                Random
+                            </Button>
                         </InputGroup>
                     </div>
                     <Button className="btn" disabled={!hideInput1 || !hideInput2} onClick={()=>battle()}>Battle</Button>
@@ -115,6 +113,9 @@ export default function Game() {
                             />
                             <Button className="btn" onClick={() => fetchUser('2')}>
               Get
+                            </Button>
+                            <Button className="btn" onClick={() => fetchRandomUser('2')}>
+                                Random
                             </Button>
                         </InputGroup>
                     </div>
