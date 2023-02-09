@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Button, Form, InputGroup, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
+import { useUser } from "../Contexts/UserProvider";
 
 export default function Game2() {
   const [user1, setUser1] = useState("");
@@ -10,6 +11,7 @@ export default function Game2() {
   const [hideInput, setHideInput] = useState(false);
   const usernameRef = useRef();
   const navigate = useNavigate();
+  const {users} = useUser()  
 
   const fetchUser = () => {
     fetch(
