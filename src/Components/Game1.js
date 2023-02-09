@@ -3,7 +3,7 @@ import { Button, Form, InputGroup, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
 
-export default function Game() {  
+export default function Game1() {  
     const [user1, setUser1] = useState('');
     const [user2, setUser2] = useState('');
     const [error, setError] = useState('');
