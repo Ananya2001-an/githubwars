@@ -46,13 +46,15 @@ body{
   width:fit-content;
   height:fit-content;
   font-size:25px;
+
 }
 
-.btn:hover, .btn:disabled{
-  background-color:white;
-  color:var(--theme);
-  border-color: white;
-}
+/* Using !important to override default behavior from the _buttons.scss*/
+    .btn:hover, .btn:disabled, .btn:active {
+        background-color: white !important;
+        color: var(--theme) !important;
+        border-color: var(--theme) !important;
+    }
 
 .arena{
   width:100%;
