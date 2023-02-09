@@ -1,5 +1,6 @@
 [![Open in GitPod](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Ananya2001-an/githubwars)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+ [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ananya2001-an/githubwars)](https://github.com/Ananya2001-an/githubwars/releases)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Ananya2001-an/githubwars)
 
 # 👋 Welcome to GitHubWars 🎮
