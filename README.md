@@ -35,6 +35,7 @@ This environment is fully on computer and requires each dependency (for example 
 3. Finally run `npm run start` script to start the app in dev mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+4. After making your changes don't forget to run `npm run lint` or `npm run lint-fix` to fix any linting errors. 
 
 ## License 🛡
 LinkFree is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
