@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState} from 'react';
 import { Button, Form, InputGroup, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
@@ -12,11 +12,29 @@ export default function Game2() {
     const usernameRef = useRef();
     const navigate = useNavigate();
     const {users} = useUser();  
+    const headers = {
+        authorization: `token ${process.env.REACT_APP_PAT}`,
+    };
+
+    const getRandomUser = async()=>{
+        const randomIndex = Math.floor(Math.random()*users.length);
+        
+        const res = await fetch(
+            `https://api.github.com/users/${users[randomIndex]}`,
+            {
+                method: 'GET',
+                headers: headers,
+            }
+        );
+        const data = await res.json();
+        setUser2(data);
+    };
 
     const fetchUser = () => {
-        fetch(
-            `https://api.github.com/users/${ usernameRef.current.value}`
-        )
+        fetch(`https://api.github.com/users/${usernameRef.current.value}`, {
+            method: 'GET',
+            headers: headers,
+        })
             .then((res) => res.json())
             .then((data) => {
                 if (data.message === undefined) {
@@ -52,7 +70,11 @@ export default function Game2() {
                                     alignItems: 'center',
                                 }}
                             >
-                                <img src={user1.avatar_url} className="avatar" alt="player1" />
+                                <img
+                                    src={user1.avatar_url}
+                                    className="avatar"
+                                    alt="player1"
+                                />
                                 <h1>{user1.name}</h1>
                                 <p style={{ fontSize: '20px', textAlign: 'center' }}>
                                     {user1.bio}
@@ -69,16 +91,16 @@ export default function Game2() {
                                 style={{ background: 'transparent' }}
                             />
                             <Button className="btn" onClick={() => fetchUser()}>
-                Get
+                  Get
                             </Button>
                         </InputGroup>
                     </div>
                     <Button
                         className="btn"
-                        disabled={!hideInput}
+                        disabled={!hideInput || user2 === ''}
                         onClick={() => battle()}
                     >
-            Battle
+              Battle
                     </Button>
                     <div className="user2">
                         {hideInput === false && (
@@ -102,13 +124,41 @@ export default function Game2() {
                                         textAlign: 'center',
                                     }}
                                 >
-                  Waiting for first player . . .
+                    Waiting for first player . . .
                                 </p>
                             </div>
                         )}
-                        {hideInput === true && 
-                <div>random user</div>
-                        }
+                        {hideInput === true && (
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                {user2 !== '' && (
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                        }}
+                                    >
+                                        <img
+                                            src={user2.avatar_url}
+                                            className="avatar"
+                                            alt="player2"
+                                        />
+                                        <h1>{user2.name}</h1>
+                                        <p style={{ fontSize: '20px', textAlign: 'center' }}>
+                                            {user2.bio}
+                                        </p>
+                                    </div>
+                                )}
+                                <Button className="btn" onClick={()=>getRandomUser()}>Fetch Random User</Button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

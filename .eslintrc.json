@@ -1,6 +1,6 @@
 {
     "env": {
-        "browser": true,
+        "node": true,
         "es2021": true,
         "jest": true
     },
@@ -23,6 +23,7 @@
         "react"
     ],
     "rules": {
+        "react/prop-types": "off",
         "react/react-in-jsx-scope":"off",
         "indent": [
             "error",
