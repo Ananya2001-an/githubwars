@@ -3,7 +3,7 @@ import { Button, Form, InputGroup, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
 
-export default function Game() {  
+export default function Game1() {  
     const [user1, setUser1] = useState('');
     const [user2, setUser2] = useState('');
     const [error, setError] = useState('');
@@ -12,21 +12,35 @@ export default function Game() {
     const username1Ref = useRef();
     const username2Ref = useRef();
     const navigate = useNavigate();
-
+    const headers = {
+        authorization: `token ${process.env.REACT_APP_PAT}`,
+    };
+    
     const fetchUser = (user_no) => {
-        fetch(`https://api.github.com/users/${user_no === '1'?username1Ref.current.value:username2Ref.current.value}`)
-            .then(res => res.json())
-            .then(data => {
+        fetch(
+            `https://api.github.com/users/${
+                user_no === '1'
+                    ? username1Ref.current.value
+                    : username2Ref.current.value
+            }`,
+            {
+                method: 'GET',
+                headers: headers,
+            }
+        )
+            .then((res) => res.json())
+            .then((data) => {
                 if (data.message === undefined) {
                     setError('');
-                    user_no === '1'?setUser1(data):setUser2(data);
-                    user_no === '1'?setHideInput1(true):setHideInput2(true);
-                    user_no === '1'?setHideInput2(false):setHideInput2(true);
+                    user_no === '1' ? setUser1(data) : setUser2(data);
+                    user_no === '1' ? setHideInput1(true) : setHideInput2(true);
+                    user_no === '1' ? setHideInput2(false) : setHideInput2(true);
                 } else {
                     setError('Invalid Username!');
                 }
             });
     };
+
 
     const battle = ()=>{
         navigate('/stats', {state:{user1, user2}});    
