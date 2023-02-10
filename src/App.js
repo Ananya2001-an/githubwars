@@ -1,8 +1,8 @@
 import Home from './Components/Home';
 import Game1 from './Components/Game1';
-import Game2 from './Components/Game2'
+import Game2 from './Components/Game2';
 import Stats from './Components/Stats';
-import Options from "./Components/Options";
+import Options from './Components/Options';
 import {Routes, Route} from 'react-router-dom';
 
 export default function App() {
