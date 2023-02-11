@@ -88,19 +88,21 @@ export default function Stats() {
 					</div>
 				</div>
 				<div
-					className='winner'
 					style={{
+						position: 'absolute',
 						display: 'flex',
 						flexDirection: 'column',
-						alignItems: 'center',
 						gap: '1rem',
+						alignItems: 'center',
 					}}>
-					{user1Wins > user2Wins
-						? user1.name
-						: user1Wins < user2Wins
-						? user2.name
-						: 'No one'}{' '}
-					wins!
+					<div className='winner'>
+						{user1Wins > user2Wins
+							? user1.name
+							: user1Wins < user2Wins
+							? user2.name
+							: 'No one'}{' '}
+						wins!
+					</div>
 					<Button className='btn' onClick={battleAgain}>
 						Battle Again
 					</Button>
