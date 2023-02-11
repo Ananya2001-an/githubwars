@@ -1,174 +1,181 @@
 @import url('https://fonts.googleapis.com/css?family=Anton:400,500,700');
-
-:root{
-  --theme: #9a05b8;
+:root {
+    --theme: #9a05b8;
 }
 
-body{
-  font-family: 'Anton', monospace;
-   background-color: white;
+body {
+    font-family: 'Anton', monospace;
+    background-color: white;
 }
 
-.bg{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:90vh;
+.bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
 }
 
-.animated-icon{
- position:relative;
- width:700px;
- height:600px;
- opacity:0.3;
- animation:animate-icon 10s infinite alternate;
+.animated-icon {
+    position: relative;
+    width: 700px;
+    height: 600px;
+    opacity: 0.3;
+    animation: animate-icon 10s infinite alternate;
 }
 
-@keyframes animate-icon{
-  0%{
-    transform: rotateY(3.142rad);  
-  }
-  50%{
-    opacity:0.7;
-  }
-  100%{
-    transform: rotateY(-3.142rad);
-  }
+@keyframes animate-icon {
+    0% {
+        transform: rotateY(3.142rad);
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: rotateY(-3.142rad);
+    }
 }
 
-.heading{
-  font-size:100px;
+.heading {
+    font-size: 100px;
 }
 
-.btn{
-  background-color: var(--theme);
-  border-color: var(--theme);
-  width:fit-content;
-  height:fit-content;
-  font-size:25px;
-
+.btn {
+    background-color: var(--theme);
+    border-color: var(--theme);
+    width: fit-content;
+    height: fit-content;
+    font-size: 25px;
 }
+
 
 /* Using !important to override default behavior from the _buttons.scss*/
-    .btn:hover, .btn:disabled, .btn:active {
-        background-color: white !important;
-        color: var(--theme) !important;
-        border-color: var(--theme) !important;
+
+.btn:hover,
+.btn:disabled,
+.btn:active {
+    background-color: white !important;
+    color: var(--theme) !important;
+    border-color: var(--theme) !important;
+}
+
+.arena {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.user1,
+.user2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+}
+
+.avatar {
+    border: 2px solid var(--theme);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.input-group>input.form-control {
+    border-color: var(--theme);
+    color: var(--theme);
+    font-size: 20px;
+}
+
+.input-group>input.form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.input-group>input.form-control::placeholder {
+    color: var(--theme);
+}
+
+.animated-item1 {
+    animation: down-top 1s ease-in;
+}
+
+.animated-item2 {
+    animation: down-top 2s ease-in;
+}
+
+.animated-item3 {
+    animation: down-top 3s ease-in;
+}
+
+.animated-item4 {
+    animation: down-top 4s ease-in;
+}
+
+.winner {
+    font-size: 30px;
+    animation: show-winner 3s ease-in-out;
+}
+
+@keyframes show-winner {
+    0% {
+        transform: scale(10);
     }
-
-.arena{
-  width:100%;
-  height:90%;
-  position:absolute;
-  display:flex;
-  justify-content:space-evenly;
-  align-items:center;
+    100% {
+        transform: scale(1);
+    }
 }
 
-.user1, .user2{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  width:400px;
-  height:400px;
+@keyframes down-top {
+    0% {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.avatar{
-  border: 2px solid var(--theme);
-  border-radius: 50%;
-  width: 200px;
-  height: 200px; 
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 90%;
 }
 
-.input-group > input.form-control{
-  border-color:var(--theme);
-  color:var(--theme);
-  font-size:20px;
-}
-
-.input-group > input.form-control:focus{
-  outline:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-
-.input-group > input.form-control::placeholder{
-  color:var(--theme);
-}
-
-.animated-item1{
-  animation: down-top 1s ease-in;
-}
-.animated-item2{
-  animation: down-top 2s ease-in;
-}
-.animated-item3{
-  animation: down-top 3s ease-in;
-}
-.animated-item4{
-  animation: down-top 4s ease-in;
-}
-.winner{
-  position:absolute;
-  font-size:30px;
-  animation: show-winner 3s ease-in-out;
-}
-
-@keyframes show-winner{
-  0%{
-   transform:scale(10);
-  }
-  100%{
-    transform:scale(1);
-  }
-}
-
-@keyframes down-top{
-  0%{
-    transform:translateY(150px);
-    opacity:0;
-  }
-  100%{
-    transform:translateY(0);
-    opacity:1;
-  }
-}
-
-.stats{
-  display:flex;
-  justify-content:space-evenly;
-  align-items:center;
-  position:absolute;
-  width:100%;
-  height:90%;
-}
-
-@media screen and (max-width:500px){
-  .stats{
-    flex-direction:column;
-  }
-  .arena{
-    flex-direction:column;
-    justify-content:space-evenly;
-    align-items:center;
-  }
-  .avatar{
-    width:100px;
-    height:100px;
-  }
-  .user1, .user2{
-    width:250px;
-    height:250px;
-  }
-  .user2{
-    margin-top:20px;
-  }
-  .animated-icon{
-    width:300px;
-    height:300px;
-  }
-  .heading{
-    font-size:50px;
-  }
+@media screen and (max-width: 500px) {
+    .stats {
+        flex-direction: column;
+    }
+    .arena {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+    .user1,
+    .user2 {
+        width: 250px;
+        height: 250px;
+    }
+    .user2 {
+        margin-top: 20px;
+    }
+    .animated-icon {
+        width: 300px;
+        height: 300px;
+    }
+    .heading {
+        font-size: 50px;
+    }
 }
