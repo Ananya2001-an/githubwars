@@ -179,3 +179,32 @@ body {
         font-size: 50px;
     }
 }
+
+/* Dark mode enabled automatically */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+    }
+
+    .heading, .animated-item2, .animated-item3, .animated-item4 {
+        color: #FFF;
+    }
+
+    .btn {
+        background-color: #FFF;
+        color: var(--theme);
+    }
+
+    .btn:hover, .btn:disabled, .btn:active {
+        background-color: var(--theme) !important;
+        color: #FFF !important;
+    }
+
+    .input-group>input.form-control, .input-group>input.form-control::placeholder, .winner {
+        color: #FFF;
+    }
+
+    .input-group>input.form-control {
+        border-color: #FFF;
+    }
+}
