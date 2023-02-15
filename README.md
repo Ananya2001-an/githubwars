@@ -6,8 +6,6 @@
 # 👋 Welcome to GitHubWars 🎮
 GitHubWars is a fun project started by **@Ananya2001-an** to cultivate a community full of people who wish to learn coding the fun way. You can compare your GitHub stats with other fellow GitHub users and see how much you have grown on this platform. I wish to take this project to the next level where we can have more fun challenges, rounds, rewards and lots of learning!    
 
-![image](https://user-images.githubusercontent.com/55504616/218004285-e30eb758-3110-4a13-bc79-58a2caaf586c.png)
-
 ![image](https://user-images.githubusercontent.com/55504616/218004298-ada7c609-74bd-42de-ac86-654656bcb875.png)
 
 ![chrome-capture-2023-1-10 (1)](https://user-images.githubusercontent.com/55504616/218004456-1c9e2061-b39e-4445-beda-6762706215d9.gif)
