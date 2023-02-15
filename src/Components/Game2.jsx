@@ -2,7 +2,8 @@ import {useRef, useState} from 'react';
 import {Button, Form, InputGroup, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
-import {useUser} from '../Contexts/UserProvider';
+import { useUser } from '../Contexts/UserProvider';
+import { StatsProvider } from '../Contexts/StatsProvider';
 
 export default function Game2() {
 	const [user1, setUser1] = useState('');
@@ -12,6 +13,7 @@ export default function Game2() {
 	const usernameRef = useRef();
 	const navigate = useNavigate();
 	const {users} = useUser();
+	const provider = new StatsProvider();
 	const headers = {
 		authorization: `${process.env.REACT_APP_PAT}`,
 	};
@@ -30,22 +32,33 @@ export default function Game2() {
 		setUser2(data);
 	};
 
-	const fetchUser = () => {
-		fetch(`https://api.github.com/users/${usernameRef.current.value}`, {
-			method: 'GET',
-			headers: headers,
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				if (data.message === undefined) {
-					setError('');
-					setUser1(data);
-					setHideInput(true);
-				} else {
-					setError('Invalid Username!');
-				}
+	const fetchUser = async () => {
+		try {
+			const response = await fetch(`https://api.github.com/users/${usernameRef.current.value}`, {
+				method: 'GET',
+				headers: headers,
 			});
+
+			const data = await response.json();
+
+			if (data.message === undefined) {
+				setError('');
+				const stats = await provider.getStats(usernameRef.current.value);
+				const userData = { ...data, ...stats };
+				setUser1(userData);
+				console.log(userData);
+				setHideInput(true);
+			} else {
+				setError('Invalid Username!');
+			}
+		} catch (error) {
+			console.error(error);
+			setError('Error fetching user data');
+		}
+
+		
 	};
+
 
 	const battle = () => {
 		navigate('/stats', {state: {user1, user2}});
@@ -61,20 +74,29 @@ export default function Game2() {
 				/>
 				<div className='arena'>
 					<div className='user1'>
-						{user1 !== '' && (
-							<div
-								style={{
-									display: 'flex',
-									flexDirection: 'column',
-									justifyContent: 'space-between',
-									alignItems: 'center',
-								}}>
-								<img src={user1.avatar_url} className='avatar' alt='player1' />
-								<h1>{user1.name}</h1>
-								<p style={{fontSize: '20px', textAlign: 'center'}}>
-									{user1.bio}
-								</p>
-							</div>
+							{ user1 !== '' && (
+								<div
+									style={{
+										display: 'flex',
+										flexDirection: 'column',
+										justifyContent: 'space-between',
+										alignItems: 'center',
+									}}>
+									<img src={user1.avatar_url} className='avatar' alt='player1' />
+									<h1>{user1.name}</h1>
+									<p style={{ fontSize: '20px', textAlign: 'center' }}>
+										{user1.bio}
+									</p>
+									<div>
+										<p>Public Repos: {user1.public_repos}</p>
+										<p>Followers: {user1.followers}</p>
+										<p>Following: {user1.following}</p>
+										<p>PRs Created: {user1.numPullRequest}</p>
+										<p>Total Commits: {user1.numCommits}</p>
+										<p>Issues Opened: {user1.numIssues}</p>
+										<p>Organizations Created: {user1.numOrganizations}</p>
+									</div>
+								</div>
 						)}
 						{error !== '' && hideInput !== true && (
 							<Alert variant='danger'>{error}</Alert>
