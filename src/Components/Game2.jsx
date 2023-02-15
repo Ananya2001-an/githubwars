@@ -92,6 +92,7 @@ export default function Game2() {
 										<p>Followers: {user1.followers}</p>
 										<p>Following: {user1.following}</p>
 										<p>PRs Created: {user1.numPullRequest}</p>
+										<p>Total Commits: {user1.numCommits}</p>
 										<p>Issues Opened: {user1.numIssues}</p>
 										<p>Organizations Created: {user1.numOrganizations}</p>
 									</div>

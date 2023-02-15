@@ -1,8 +1,11 @@
+//Class responsible for getting additional stats for users. 
+
 class StatsProvider {
     constructor() {
         this.baseUrl = 'https://api.github.com';
     }
 
+    //All Stats Given
     async getStats(username) {
 
         const repos = await this._getRepos(username);
@@ -11,9 +14,9 @@ class StatsProvider {
 
         //Runs these in parellel to get faster load time
         const [numCommits, numPullRequest, numIssues, numOrganizations] = await Promise.all([
-            this.getCommitCount(username),
-            this.getPullRequestCount(username),
-            this.getIssueCount(username),
+            this.getCommitCount(username, repos),
+            this.getPullRequestCount(username, repos),
+            this.getIssueCount(username, repos),
             this.getOrganizationCount(username),
         ]);
 
@@ -32,8 +35,8 @@ class StatsProvider {
         };
     }
 
-    async getCommitCount(username) {
-        const repos = await this._getRepos(username);
+    //Specific Counts
+    async getCommitCount(username, repos) {
         let commitCount = 0;
         for (const repo of repos) {
             const commits = await this._getCommits(repo.url);
@@ -43,8 +46,7 @@ class StatsProvider {
         return commitCount;
     }
 
-    async getPullRequestCount(username) {
-        const repos = await this._getRepos(username);
+    async getPullRequestCount(username, repos) {
         let pullRequestCount = 0;
         for (const repo of repos) {
             const pullRequests = await this._getPullRequests(repo.url);
@@ -54,8 +56,7 @@ class StatsProvider {
         return pullRequestCount;
     }
 
-    async getIssueCount(username) {
-        const repos = await this._getRepos(username);
+    async getIssueCount(username, repos) {
         let issueCount = 0;
         for (const repo of repos) {
             const issues = await this._getIssues(repo.url);
@@ -82,6 +83,8 @@ class StatsProvider {
         return orgs.length;
     }
 
+
+    //API Calls
     async _getRepos(username) {
         const response = await fetch(`${this.baseUrl}/users/${username}/repos`);
         if (!response.ok) {
