@@ -1,6 +1,7 @@
 import {useLocation} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import {Button} from 'react-bootstrap';
+import {useState, useEffect} from 'react';
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from 'react-confetti';
 import {FaGithub} from 'react-icons/fa';
@@ -13,7 +14,13 @@ export default function Stats() {
 	const battleAgain = () => {
 		navigate('/options');
 	};
-
+	const [showConfetti, setShowConfetti] = useState(true);
+    
+    useEffect(() => {
+        setTimeout(() => {
+            setShowConfetti(false);
+        }, 5000);
+    }, []);
 	const {
 		followers: follow_count_1,
 		public_repos: repo_count_1,
@@ -45,6 +52,7 @@ export default function Stats() {
 		? user2Wins++
 		: user1Wins++ && user2Wins++;
 
+	
 	return (
 		<>
 			<div className='bg'>
@@ -107,7 +115,7 @@ export default function Stats() {
 						Battle Again
 					</Button>
 				</div>
-				<Confetti width={width} height={height} />
+				{showConfetti && <Confetti width={width} height={height} />}
 			</div>
 			<footer style={{textAlign: 'center'}}>
 				<a
