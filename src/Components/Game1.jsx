@@ -1,7 +1,9 @@
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Button, Form, InputGroup, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
+import ThemeBtn from './ThemeBtn';
+import useLocalStorage from 'use-local-storage';
 
 export default function Game1() {
 	const [user1, setUser1] = useState('');
@@ -12,6 +14,8 @@ export default function Game1() {
 	const username1Ref = useRef();
 	const username2Ref = useRef();
 	const navigate = useNavigate();
+	const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+	const [theme, setTheme] = useLocalStorage('theme', preferDark ? 'dark' : 'light');
 	const headers = {
 		authorization: `token ${process.env.REACT_APP_PAT}`,
 	};
@@ -45,9 +49,22 @@ export default function Game1() {
 		navigate('/stats', {state: {user1, user2}});
 	};
 
+	const toggleTheme = () => {
+		if (theme === 'dark') {
+			setTheme('light');
+		} else {
+			setTheme('dark');
+		}
+	};
+
+	useEffect(() => {
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
 	return (
 		<>
-			<div className='bg'>
+			<div className='bg' data-theme={theme}>
 				<img
 					className='animated-icon'
 					src='https://user-images.githubusercontent.com/55504616/217468363-e2c929f6-424c-4186-95fe-ab37f07c4d56.svg'
@@ -145,7 +162,7 @@ export default function Game1() {
 					</div>
 				</div>
 			</div>
-			<footer style={{textAlign: 'center'}}>
+			<footer style={{textAlign: 'center'}} data-theme={theme}>
 				<a
 					href='https://github.com/Ananya2001-an/githubwars'
 					target='_blank'
@@ -153,6 +170,7 @@ export default function Game1() {
 					rel='noreferrer'>
 					<FaGithub />
 				</a>
+				<ThemeBtn onChange={toggleTheme} />
 			</footer>{' '}
 		</>
 	);

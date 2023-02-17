@@ -1,15 +1,20 @@
+import { useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import {Button} from 'react-bootstrap';
 import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from 'react-confetti';
 import {FaGithub} from 'react-icons/fa';
+import ThemeBtn from './ThemeBtn';
+import useLocalStorage from 'use-local-storage';
 
 export default function Stats() {
 	const {state} = useLocation();
 	const {width, height} = useWindowSize();
 	const {user1, user2} = state;
 	const navigate = useNavigate();
+	const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+	const [theme, setTheme] = useLocalStorage('theme', preferDark ? 'dark' : 'light');
 	const battleAgain = () => {
 		navigate('/options');
 	};
@@ -45,9 +50,22 @@ export default function Stats() {
 		? user2Wins++
 		: user1Wins++ && user2Wins++;
 
+	const toggleTheme = () => {
+		if (theme === 'dark') {
+			setTheme('light');
+		} else {
+			setTheme('dark');
+		}
+	};
+
+	useEffect(() => {
+        document.body.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
 	return (
 		<>
-			<div className='bg'>
+			<div className='bg' data-theme={theme}>
 				<img
 					className='animated-icon'
 					src='https://user-images.githubusercontent.com/55504616/217468363-e2c929f6-424c-4186-95fe-ab37f07c4d56.svg'
@@ -109,7 +127,7 @@ export default function Stats() {
 				</div>
 				<Confetti width={width} height={height} />
 			</div>
-			<footer style={{textAlign: 'center'}}>
+			<footer style={{textAlign: 'center'}} data-theme={theme}>
 				<a
 					href='https://github.com/Ananya2001-an/githubwars'
 					target='_blank'
@@ -117,6 +135,7 @@ export default function Stats() {
 					rel='noreferrer'>
 					<FaGithub />
 				</a>
+				<ThemeBtn onChange={toggleTheme} />
 			</footer>
 		</>
 	);
