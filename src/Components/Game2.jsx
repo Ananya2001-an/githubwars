@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import {useRef, useState , useEffect} from 'react';
 import {Button, Form, InputGroup, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
@@ -8,6 +8,7 @@ export default function Game2() {
 	const [user1, setUser1] = useState('');
 	const [user2, setUser2] = useState('');
 	const [error, setError] = useState('');
+	const [inputValue, setInputValue] = useState('');
 	const [hideInput, setHideInput] = useState(false);
 	const usernameRef = useRef();
 	const navigate = useNavigate();
@@ -51,6 +52,19 @@ export default function Game2() {
 		navigate('/stats', {state: {user1, user2}});
 	};
 
+	useEffect(() => {
+		const storedValue = localStorage.getItem('myData');
+		if (storedValue) {
+		setInputValue(storedValue);
+		}
+	}, []);
+
+	const handleInputChange = (event) => {
+		const value = event.target.value;
+		setInputValue(value);
+		localStorage.setItem('myData', value);
+	};
+
 	return (
 		<>
 			<div className='bg'>
@@ -84,6 +98,8 @@ export default function Game2() {
 								ref={usernameRef}
 								placeholder='Enter 1st GitHub Username'
 								style={{background: 'transparent'}}
+								value={inputValue}
+								onChange={handleInputChange}
 							/>
 							<Button className='btn' onClick={() => fetchUser()}>
 								Get
