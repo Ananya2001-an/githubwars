@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import {useEffect, useRef, useState} from 'react';
-=======
-import {useRef, useState , useEffect} from 'react';
->>>>>>> 53b22779ccafbc76aa5671129c66a33584365e53
+import {useEffect, useRef, useState } from 'react';
 import {Button, Form, InputGroup, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
@@ -59,23 +55,22 @@ export default function Game2() {
 		navigate('/stats', {state: {user1, user2}});
 	};
 
+	const handleInputChange = (event) => {
+		const value = event.target.value;
+		setInputValue(value);
+		localStorage.setItem('myData', value);
+	};
+
 	useEffect(() => {
-<<<<<<< HEAD
-        document.body.setAttribute('data-theme', theme);
-    }, [theme]);
-=======
 		const storedValue = localStorage.getItem('myData');
 		if (storedValue) {
 		setInputValue(storedValue);
 		}
 	}, []);
 
-	const handleInputChange = (event) => {
-		const value = event.target.value;
-		setInputValue(value);
-		localStorage.setItem('myData', value);
-	};
->>>>>>> 53b22779ccafbc76aa5671129c66a33584365e53
+	useEffect(() => {
+        document.body.setAttribute('data-theme', theme);
+    }, [theme]);
 
 	return (
 		<>
