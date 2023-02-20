@@ -2,23 +2,13 @@ import { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import {FaGithub} from 'react-icons/fa';
 import ThemeBtn from './ThemeBtn';
-import useLocalStorage from 'use-local-storage';
+import useTheme from '../Contexts/useTheme';
 
 export default function Home() {
-    const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-	const [theme, setTheme] = useLocalStorage('theme', preferDark ? 'dark' : 'light');
-
-	const toggleTheme = () => {
-		if (theme === 'dark') {
-			setTheme('light');
-		} else {
-			setTheme('dark');
-		}
-	};
+    const [theme, toggleTheme] = useTheme();
 
     useEffect(() => {
         document.body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
     }, [theme]);
 
     return (

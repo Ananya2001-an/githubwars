@@ -3,7 +3,7 @@ import {Button, Form, InputGroup, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
 import ThemeBtn from './ThemeBtn';
-import useLocalStorage from 'use-local-storage';
+import useTheme from '../Contexts/useTheme';
 
 export default function Game1() {
 	const [user1, setUser1] = useState('');
@@ -14,8 +14,7 @@ export default function Game1() {
 	const username1Ref = useRef();
 	const username2Ref = useRef();
 	const navigate = useNavigate();
-	const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-	const [theme, setTheme] = useLocalStorage('theme', preferDark ? 'dark' : 'light');
+	const [theme, toggleTheme] = useTheme();
 	const headers = {
 		authorization: `token ${process.env.REACT_APP_PAT}`,
 	};
@@ -49,17 +48,8 @@ export default function Game1() {
 		navigate('/stats', {state: {user1, user2}});
 	};
 
-	const toggleTheme = () => {
-		if (theme === 'dark') {
-			setTheme('light');
-		} else {
-			setTheme('dark');
-		}
-	};
-
 	useEffect(() => {
         document.body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
     }, [theme]);
 
 	return (

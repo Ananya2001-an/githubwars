@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
 import {useUser} from '../Contexts/UserProvider';
 import ThemeBtn from './ThemeBtn';
-import useLocalStorage from 'use-local-storage';
+import useTheme from '../Contexts/useTheme';
 
 export default function Game2() {
 	const [user1, setUser1] = useState('');
@@ -14,8 +14,7 @@ export default function Game2() {
 	const usernameRef = useRef();
 	const navigate = useNavigate();
 	const {users} = useUser();
-	const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-	const [theme, setTheme] = useLocalStorage('theme', preferDark ? 'dark' : 'light');
+	const [theme, toggleTheme] = useTheme();
 	const headers = {
 		authorization: `${process.env.REACT_APP_PAT}`,
 	};
@@ -55,17 +54,8 @@ export default function Game2() {
 		navigate('/stats', {state: {user1, user2}});
 	};
 
-	const toggleTheme = () => {
-		if (theme === 'dark') {
-			setTheme('light');
-		} else {
-			setTheme('dark');
-		}
-	};
-
 	useEffect(() => {
         document.body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
     }, [theme]);
 
 	return (

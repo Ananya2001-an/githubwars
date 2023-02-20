@@ -6,15 +6,14 @@ import useWindowSize from 'react-use/lib/useWindowSize';
 import Confetti from 'react-confetti';
 import {FaGithub} from 'react-icons/fa';
 import ThemeBtn from './ThemeBtn';
-import useLocalStorage from 'use-local-storage';
+import useTheme from '../Contexts/useTheme';
 
 export default function Stats() {
 	const {state} = useLocation();
 	const {width, height} = useWindowSize();
 	const {user1, user2} = state;
 	const navigate = useNavigate();
-	const preferDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-	const [theme, setTheme] = useLocalStorage('theme', preferDark ? 'dark' : 'light');
+	const [theme, toggleTheme] = useTheme();
 	const battleAgain = () => {
 		navigate('/options');
 	};
@@ -50,17 +49,8 @@ export default function Stats() {
 		? user2Wins++
 		: user1Wins++ && user2Wins++;
 
-	const toggleTheme = () => {
-		if (theme === 'dark') {
-			setTheme('light');
-		} else {
-			setTheme('dark');
-		}
-	};
-
 	useEffect(() => {
         document.body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
     }, [theme]);
 
 	return (
