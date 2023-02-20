@@ -13,7 +13,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.8.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-use": "^17.4.0",
     "web-vitals": "^2.1.4"
   },
@@ -49,6 +49,7 @@
     "@semantic-release/github": "^8.0.7",
     "eslint": "^8.33.0",
     "eslint-plugin-react": "^7.32.2",
-    "semantic-release": "^20.1.0"
+    "semantic-release": "^20.1.0",
+    "use-local-storage": "^2.3.6"
   }
 }

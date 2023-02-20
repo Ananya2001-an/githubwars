@@ -1,7 +1,9 @@
-import {useRef, useState, useEffect} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Button, Form, InputGroup, Alert} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {FaGithub} from 'react-icons/fa';
+import ThemeBtn from './ThemeBtn';
+import useTheme from '../Contexts/useTheme';
 
 export default function Game1() {
 	const [user1, setUser1] = useState('');
@@ -13,6 +15,7 @@ export default function Game1() {
 	const username1Ref = useRef();
 	const username2Ref = useRef();
 	const navigate = useNavigate();
+	const [theme, toggleTheme] = useTheme();
 	const headers = {
 		authorization: `token ${process.env.REACT_APP_PAT}`,
 	};
@@ -57,9 +60,13 @@ export default function Game1() {
 		setInputValue(value);
 		localStorage.setItem('myData', value);
 	};
+	useEffect(() => {
+        document.body.setAttribute('data-theme', theme);
+    }, [theme]);
+
 	return (
 		<>
-			<div className='bg'>
+			<div className='bg' data-theme={theme}>
 				<img
 					className='animated-icon'
 					src='https://user-images.githubusercontent.com/55504616/217468363-e2c929f6-424c-4186-95fe-ab37f07c4d56.svg'
@@ -92,7 +99,6 @@ export default function Game1() {
 								style={{background: 'transparent'}}
 								value={inputValue}
 								onChange={handleInputChange}
-								
 							/>
 							<Button className='btn' onClick={() => fetchUser('1')}>
 								Get
@@ -160,7 +166,7 @@ export default function Game1() {
 					</div>
 				</div>
 			</div>
-			<footer style={{textAlign: 'center'}}>
+			<footer style={{textAlign: 'center'}} data-theme={theme}>
 				<a
 					href='https://github.com/Ananya2001-an/githubwars'
 					target='_blank'
@@ -168,6 +174,7 @@ export default function Game1() {
 					rel='noreferrer'>
 					<FaGithub />
 				</a>
+				<ThemeBtn onChange={toggleTheme} />
 			</footer>{' '}
 		</>
 	);
