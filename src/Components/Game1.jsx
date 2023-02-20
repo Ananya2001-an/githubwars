@@ -11,6 +11,7 @@ export default function Game1() {
 	const [error, setError] = useState('');
 	const [hideInput1, setHideInput1] = useState(false);
 	const [hideInput2, setHideInput2] = useState(true);
+	const [inputValue, setInputValue] = useState('');
 	const username1Ref = useRef();
 	const username2Ref = useRef();
 	const navigate = useNavigate();
@@ -18,7 +19,6 @@ export default function Game1() {
 	const headers = {
 		authorization: `token ${process.env.REACT_APP_PAT}`,
 	};
-
 	const fetchUser = (user_no) => {
 		fetch(
 			`https://api.github.com/users/${
@@ -48,6 +48,18 @@ export default function Game1() {
 		navigate('/stats', {state: {user1, user2}});
 	};
 
+	useEffect(() => {
+		const storedValue = localStorage.getItem('myData');
+		if (storedValue) {
+		setInputValue(storedValue);
+		}
+	}, []);
+
+	const handleInputChange = (event) => {
+		const value = event.target.value;
+		setInputValue(value);
+		localStorage.setItem('myData', value);
+	};
 	useEffect(() => {
         document.body.setAttribute('data-theme', theme);
     }, [theme]);
@@ -85,6 +97,8 @@ export default function Game1() {
 								ref={username1Ref}
 								placeholder='Enter 1st GitHub Username'
 								style={{background: 'transparent'}}
+								value={inputValue}
+								onChange={handleInputChange}
 							/>
 							<Button className='btn' onClick={() => fetchUser('1')}>
 								Get
