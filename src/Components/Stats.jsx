@@ -17,7 +17,8 @@ export default function Stats() {
 	const battleAgain = () => {
 		navigate('/options');
 	};
-
+	const user2ProfileLink = 'https://github.com/'+user2.login;
+	const user1ProfileLink = 'https://github.com/'+user1.login;
 	const {
 		followers: follow_count_1,
 		public_repos: repo_count_1,
@@ -77,6 +78,13 @@ export default function Stats() {
 						<h3 className='animated-item2'>Followers: {follow_count_1}</h3>
 						<h3 className='animated-item3'>Repositories: {repo_count_1}</h3>
 						<h3 className='animated-item4'>Gists: {gist_count_1}</h3>
+						<a
+							href={user1ProfileLink} 
+							target='_blank'
+							style={{color: 'black', fontSize: '40px', cursor: 'pointer'}}
+							rel='noreferrer'>
+							<FaGithub />
+						</a>
 					</div>
 					<div
 						style={{
@@ -89,10 +97,17 @@ export default function Stats() {
 							src={user2.avatar_url}
 							className='avatar animated-item1'
 							alt='player2'
-						/>
+						/>	
 						<h3 className='animated-item2'>Followers: {follow_count_2}</h3>
 						<h3 className='animated-item3'>Repositories: {repo_count_2}</h3>
 						<h3 className='animated-item4'>Gists: {gist_count_2}</h3>
+						<a
+							href={user2ProfileLink} 
+							target='_blank'
+							style={{color: 'black', fontSize: '40px', cursor: 'pointer'}}
+							rel='noreferrer'>
+							<FaGithub />
+						</a>
 					</div>
 				</div>
 				<div
@@ -109,10 +124,11 @@ export default function Stats() {
 							: user1Wins < user2Wins
 							? user2.name
 							: 'No one'}{' '}
-						wins!
+						wins! 	
+
 					</div>
 					<Button className='btn' onClick={battleAgain}>
-						Battle Again
+						Battle Again 
 					</Button>
 				</div>
 				<Confetti width={width} height={height} />
