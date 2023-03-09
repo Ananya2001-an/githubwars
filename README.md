@@ -4,18 +4,9 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/Ananya2001-an/githubwars)
 
 # 👋 Welcome to GitHubWars 🎮
-GitHubWars is a fun project started by **@Ananya2001-an** to cultivate a community full of people who wish to learn coding the fun way. You can compare your GitHub stats with other fellow GitHub users and see how much you have grown on this platform. I wish to take this project to the next level where we can have more fun challenges, rounds, rewards and lots of learning!    
-
-![image](https://user-images.githubusercontent.com/55504616/218004298-ada7c609-74bd-42de-ac86-654656bcb875.png)
+Here, you can compare your GitHub stats with other fellow GitHub users. It can be against a random user or some person whose username is known to you. 
 
 ![chrome-capture-2023-1-10 (1)](https://user-images.githubusercontent.com/55504616/218004456-1c9e2061-b39e-4445-beda-6762706215d9.gif)
-
-
-## Inspiration 💭
-I wanted to make something with which I could learn new skills along the way. I thought that this could be a great way to make people realize how well they are using GitHub. If they are not then they should because there are many developers around the world who use GitHub like there's no tomorrow😂. It's a fact by the way. 
-
-## Vision 🎯
-In the future I wish to add much more challenges and fun themes to this game which are still under progress. I wish to use the GitHub api properly for getting accurate results as much as possible and maybe create possibility of generating random GitHub users with whom you can compete, share your wins on social media, and more. But I need help your help to achieve the same. ;)
 
 # How to contribute? 👩‍💻
 1. GitPod
