@@ -21,7 +21,7 @@ export default function Home() {
                 </div>
             </div>
             <footer style={{textAlign:'center'}} data-theme={theme}><a href="https://github.com/Ananya2001-an/githubwars" target="_blank"
-                style={{color:'black', fontSize:'20px', cursor:'pointer'}} rel="noreferrer"><FaGithub /></a>
+                style={{color:'black', fontSize:'20px', cursor:'pointer'}} rel="noreferrer"><FaGithub color={theme==='dark' && 'white'}/></a>
                 <ThemeBtn onChange={toggleTheme} />
             </footer>
         </>
