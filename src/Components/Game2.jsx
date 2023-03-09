@@ -183,7 +183,7 @@ export default function Game2() {
 					target='_blank'
 					style={{color: 'black', fontSize: '20px', cursor: 'pointer'}}
 					rel='noreferrer'>
-					<FaGithub />
+					<FaGithub color={theme==='dark' && 'white'}/>
 				</a>
 				<ThemeBtn onChange={toggleTheme} />
 			</footer>{' '}

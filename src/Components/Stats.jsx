@@ -83,7 +83,7 @@ export default function Stats() {
 							target='_blank'
 							style={{color: 'black', fontSize: '40px', cursor: 'pointer'}}
 							rel='noreferrer'>
-							<FaGithub />
+							<FaGithub color={theme==='dark' && 'white'}/>
 						</a>
 					</div>
 					<div
@@ -106,7 +106,7 @@ export default function Stats() {
 							target='_blank'
 							style={{color: 'black', fontSize: '40px', cursor: 'pointer'}}
 							rel='noreferrer'>
-							<FaGithub />
+							<FaGithub color={theme==='dark' && 'white'}/>
 						</a>
 					</div>
 				</div>
@@ -139,7 +139,7 @@ export default function Stats() {
 					target='_blank'
 					style={{color: 'black', fontSize: '20px', cursor: 'pointer'}}
 					rel='noreferrer'>
-					<FaGithub />
+					<FaGithub color={theme==='dark' && 'white'}/>
 				</a>
 				<ThemeBtn onChange={toggleTheme} />
 			</footer>
